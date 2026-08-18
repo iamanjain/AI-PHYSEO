@@ -1,4 +1,4 @@
-# AI Rehab Assistant 🩺🤖
+# PhysioTrack 🩺🤖
 
 AI-powered physical rehabilitation exercise monitoring and real-time posture coaching web application built with React, Vite, Tailwind CSS, MediaPipe Tasks Vision, and Web Speech API.
 

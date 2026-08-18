@@ -18,13 +18,13 @@ export default function Footer() {
 
           <div className="text-xs text-slate-400 max-w-xl">
             <p>
-              <strong className="text-slate-300">Medical Disclaimer:</strong> AI Rehab Assistant is designed to assist physical rehabilitation exercises. Always consult a licensed physical therapist or medical professional for clinical diagnosis and exercise prescription.
+              <strong className="text-slate-300">Medical Disclaimer:</strong> PhysioTrack is designed to assist physical rehabilitation exercises. Always consult a licensed physical therapist or medical professional for clinical diagnosis and exercise prescription.
             </p>
           </div>
         </div>
 
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} AI Rehab Assistant. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} PhysioTrack. All rights reserved.</p>
           <p className="mt-2 sm:mt-0 font-mono">Phase 0 — Project Foundation</p>
         </div>
       </div>

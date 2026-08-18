@@ -1,5 +1,5 @@
 export const PLATFORM_INFO = {
-  name: 'AI Rehab Assistant',
+  name: 'PhysioTrack',
   subtitle: 'AI-powered exercise monitoring for smarter rehabilitation.',
   tagline: 'Precision visual feedback for personalized physical therapy and injury recovery.',
   ctaText: 'Start Rehabilitation',

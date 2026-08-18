@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App';
 import './index.css';
 
-console.log('AI Rehab Assistant initializing React application...');
+console.log('PhysioTrack initializing React application...');
 
 const rootElement = document.getElementById('root');
 if (rootElement) {

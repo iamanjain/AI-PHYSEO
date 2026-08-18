@@ -221,7 +221,7 @@ export default function SessionReportPage() {
         <div className="bg-teal-50 dark:bg-teal-950/40 border border-teal-200 dark:border-teal-800/80 p-5 sm:p-6 rounded-3xl space-y-2">
           <h3 className="text-sm font-bold text-teal-900 dark:text-teal-300 flex items-center space-x-2">
             <ShieldCheck className="w-4 h-4 text-teal-600 dark:text-teal-400" />
-            <span>AI REHAB ASSISTANT RECOMMENDATION</span>
+            <span>PHYSIOTRACK CLINICAL RECOMMENDATION</span>
           </h3>
           <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
             {recommendation}
