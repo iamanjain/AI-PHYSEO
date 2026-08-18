@@ -80,7 +80,7 @@ export default function ExerciseSessionPage() {
     const smoother = smootherRef.current;
     detectorRef.current = detector;
 
-    startExerciseSession();
+    startExerciseSession(id);
 
     async function initPoseEngine() {
       setAiStatus('INITIALIZING');
