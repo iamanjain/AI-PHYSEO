@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Activity, Shield, Sun, Moon } from 'lucide-react';
+import { Shield, Sun, Moon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { PLATFORM_INFO } from '../data/rehabData';
+import PhysioLogo from './PhysioLogo';
 
 export default function Header() {
   const [isDark, setIsDark] = useState(() => {
@@ -33,15 +34,13 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Name with Link to Home */}
         <Link to="/" className="flex items-center space-x-3 group focus:outline-none">
-          <div className="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center text-white shadow-sm group-hover:bg-brand-600 transition-colors">
-            <Activity className="w-6 h-6" />
-          </div>
+          <PhysioLogo variant="badge" />
           <div>
-            <span className="font-bold text-lg text-slate-900 dark:text-white tracking-tight group-hover:text-brand-600 transition-colors">
+            <span className="font-bold text-lg text-slate-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
               {PLATFORM_INFO.name}
             </span>
-            <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950/80 text-brand-700 dark:text-brand-300 border border-brand-100 dark:border-brand-800">
-              Healthcare AI
+            <span className="hidden sm:inline-block ml-2 text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
+              Physiotherapy AI
             </span>
           </div>
         </Link>
