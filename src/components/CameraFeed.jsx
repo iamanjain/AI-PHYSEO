@@ -78,39 +78,39 @@ export default function CameraFeed({
   }
 
   return (
-    <div className="relative w-full min-h-[88vh] bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col justify-between p-3 sm:p-5">
+    <div className="relative w-full min-h-[88vh] bg-white dark:bg-slate-950 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl dark:shadow-2xl flex flex-col justify-between p-3 sm:p-5 transition-colors duration-200">
       
       {/* 1. Top Navigation Bar & 4-Step Guided Progress Header */}
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 z-30 pb-3 border-b border-slate-800/80">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 z-30 pb-3 border-b border-slate-200 dark:border-slate-800/80 transition-colors">
         
         {/* Left: Back Button & Exercise Title */}
         <div className="flex items-center space-x-3">
           <button
             type="button"
             onClick={onStopSession}
-            className="w-10 h-10 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-md"
+            className="w-10 h-10 rounded-2xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-sm"
             title="Back / Exit Session"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h2 className="text-base sm:text-lg font-black tracking-wider text-white uppercase font-mono">
+            <h2 className="text-base sm:text-lg font-black tracking-wider text-slate-900 dark:text-white uppercase font-mono">
               {exerciseName}
             </h2>
-            <span className="text-[10px] font-mono text-teal-400 font-bold block">
+            <span className="text-[10px] font-mono text-teal-600 dark:text-teal-400 font-bold block">
               REAL-TIME AI GUIDED SESSION
             </span>
           </div>
         </div>
 
         {/* Center: 4-Step Visual Progress Bar */}
-        <div className="flex items-center space-x-1.5 sm:space-x-2 bg-slate-900/90 px-3.5 py-1.5 rounded-full border border-slate-800 shadow-lg">
+        <div className="flex items-center space-x-1.5 sm:space-x-2 bg-slate-100 dark:bg-slate-900/90 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
           <StepBadge num={1} label="Positioning" active={activeStep === 1} completed={activeStep > 1} />
-          <span className="text-slate-700 font-mono text-xs">→</span>
+          <span className="text-slate-400 dark:text-slate-700 font-mono text-xs">→</span>
           <StepBadge num={2} label="Posture Check" active={activeStep === 2} completed={activeStep > 2} />
-          <span className="text-slate-700 font-mono text-xs">→</span>
+          <span className="text-slate-400 dark:text-slate-700 font-mono text-xs">→</span>
           <StepBadge num={3} label="Exercise Active" active={activeStep === 3} completed={activeStep > 3} />
-          <span className="text-slate-700 font-mono text-xs">→</span>
+          <span className="text-slate-400 dark:text-slate-700 font-mono text-xs">→</span>
           <StepBadge num={4} label="Complete" active={activeStep === 4} completed={false} />
         </div>
 
@@ -120,7 +120,7 @@ export default function CameraFeed({
           <button
             type="button"
             onClick={onStopSession}
-            className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-mono text-xs font-bold shadow-lg flex items-center space-x-1.5 transition-all cursor-pointer border border-red-400"
+            className="px-3.5 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-mono text-xs font-bold shadow-md flex items-center space-x-1.5 transition-all cursor-pointer border border-red-500"
             title="Finish Exercise & View Report"
           >
             <Square className="w-3.5 h-3.5 fill-current" />
@@ -135,10 +135,10 @@ export default function CameraFeed({
               disabled={!voiceSupported}
               className={`p-2 rounded-xl text-xs font-mono font-bold flex items-center border transition-all cursor-pointer ${
                 !voiceSupported
-                  ? 'bg-slate-900 border-slate-800 text-slate-500'
+                  ? 'bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500'
                   : enableVoice
-                  ? 'bg-cyan-900/80 border-cyan-500 text-cyan-300'
-                  : 'bg-slate-900 border-slate-700 text-slate-400'
+                  ? 'bg-cyan-50 dark:bg-cyan-900/80 border-cyan-300 dark:border-cyan-500 text-cyan-700 dark:text-cyan-300'
+                  : 'bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
               }`}
               title={voiceSupported ? 'Toggle Voice Assistance' : 'Voice Unavailable'}
             >
@@ -152,8 +152,8 @@ export default function CameraFeed({
               onClick={onToggleHandTracking}
               className={`p-2 rounded-xl border text-xs font-mono font-bold flex items-center transition-all cursor-pointer ${
                 enableHandTracking
-                  ? 'bg-purple-900/80 border-purple-500 text-purple-300'
-                  : 'bg-slate-900 border-slate-700 text-slate-400'
+                  ? 'bg-purple-50 dark:bg-purple-900/80 border-purple-300 dark:border-purple-500 text-purple-700 dark:text-purple-300'
+                  : 'bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400'
               }`}
               title="Toggle Hand Tracking"
             >
@@ -165,7 +165,7 @@ export default function CameraFeed({
             <button
               type="button"
               onClick={onToggleFullscreen}
-              className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white transition-all cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all cursor-pointer"
             >
               {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
             </button>
@@ -173,7 +173,7 @@ export default function CameraFeed({
 
           <button
             type="button"
-            className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-white"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
             title="Settings"
           >
             <Settings className="w-4 h-4" />
@@ -188,48 +188,48 @@ export default function CameraFeed({
         <div className="lg:col-span-3 flex flex-col justify-between space-y-4">
           
           {/* TIME & REPS BOX */}
-          <div className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 shadow-2xl flex flex-col justify-between space-y-4">
+          <div className="bg-slate-50 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-sm dark:shadow-2xl flex flex-col justify-between space-y-4 transition-colors">
             <div>
-              <span className="text-[11px] font-mono uppercase text-slate-400 font-bold block mb-1">TIME</span>
-              <div className="text-3xl sm:text-4xl font-mono font-black text-white tracking-widest">
+              <span className="text-[11px] font-mono uppercase text-slate-500 dark:text-slate-400 font-bold block mb-1">TIME</span>
+              <div className="text-3xl sm:text-4xl font-mono font-black text-slate-900 dark:text-white tracking-widest">
                 {formattedTime}
               </div>
             </div>
 
             {/* Valid Reps & Total Reps Breakdown */}
-            <div className="pt-3 border-t border-slate-800 grid grid-cols-2 gap-2">
-              <div className="bg-slate-950 p-2.5 rounded-2xl border border-emerald-900/40">
-                <span className="text-[9px] font-mono uppercase text-emerald-400 font-extrabold block">VALID REPS</span>
-                <span className="text-2xl font-mono font-black text-emerald-300">{validReps}</span>
+            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-2">
+              <div className="bg-white dark:bg-slate-950 p-2.5 rounded-2xl border border-emerald-200 dark:border-emerald-900/40 shadow-xs">
+                <span className="text-[9px] font-mono uppercase text-emerald-600 dark:text-emerald-400 font-extrabold block">VALID REPS</span>
+                <span className="text-2xl font-mono font-black text-emerald-600 dark:text-emerald-300">{validReps}</span>
               </div>
-              <div className="bg-slate-950 p-2.5 rounded-2xl border border-cyan-900/40">
-                <span className="text-[9px] font-mono uppercase text-cyan-400 font-extrabold block">TOTAL REPS</span>
-                <span className="text-2xl font-mono font-black text-teal-300">{completedReps}</span>
+              <div className="bg-white dark:bg-slate-950 p-2.5 rounded-2xl border border-cyan-200 dark:border-cyan-900/40 shadow-xs">
+                <span className="text-[9px] font-mono uppercase text-cyan-600 dark:text-cyan-400 font-extrabold block">TOTAL REPS</span>
+                <span className="text-2xl font-mono font-black text-cyan-600 dark:text-teal-300">{completedReps}</span>
               </div>
             </div>
           </div>
 
           {/* DYNAMIC POSTURE STATUS CARD */}
           <div
-            className={`rounded-3xl p-4 sm:p-5 border-2 shadow-2xl transition-all flex items-start space-x-3 flex-1 ${
+            className={`rounded-3xl p-4 sm:p-5 border-2 shadow-sm dark:shadow-2xl transition-all flex items-start space-x-3 flex-1 ${
               isFramingMissing
-                ? 'bg-amber-950/80 border-amber-500 text-amber-200'
+                ? 'bg-amber-50 dark:bg-amber-950/80 border-amber-400 dark:border-amber-500 text-amber-900 dark:text-amber-200'
                 : isPostureIssue
-                ? 'bg-red-950/80 border-red-500 text-red-200'
-                : 'bg-emerald-950/80 border-emerald-500 text-emerald-200'
+                ? 'bg-red-50 dark:bg-red-950/80 border-red-400 dark:border-red-500 text-red-900 dark:text-red-200'
+                : 'bg-emerald-50 dark:bg-emerald-950/80 border-emerald-400 dark:border-emerald-500 text-emerald-900 dark:text-emerald-200'
             }`}
           >
             <div className="shrink-0 mt-0.5">
               {isFramingMissing ? (
-                <div className="w-9 h-9 rounded-2xl bg-amber-900/80 border border-amber-500 text-amber-300 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-2xl bg-amber-100 dark:bg-amber-900/80 border border-amber-400 dark:border-amber-500 text-amber-700 dark:text-amber-300 flex items-center justify-center">
                   <UserCheck className="w-5 h-5 animate-pulse" />
                 </div>
               ) : isPostureIssue ? (
-                <div className="w-9 h-9 rounded-2xl bg-red-900/80 border border-red-500 text-red-300 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-2xl bg-red-100 dark:bg-red-900/80 border border-red-400 dark:border-red-500 text-red-700 dark:text-red-300 flex items-center justify-center">
                   <AlertTriangle className="w-5 h-5 animate-pulse" />
                 </div>
               ) : (
-                <div className="w-9 h-9 rounded-2xl bg-emerald-900/80 border border-emerald-500 text-emerald-300 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-2xl bg-emerald-100 dark:bg-emerald-900/80 border border-emerald-400 dark:border-emerald-500 text-emerald-700 dark:text-emerald-300 flex items-center justify-center">
                   <CheckCircle2 className="w-5 h-5" />
                 </div>
               )}
@@ -265,7 +265,7 @@ export default function CameraFeed({
         </div>
 
         {/* CENTER COLUMN: Full Viewport Video Feed with Pose Skeleton */}
-        <div className="lg:col-span-6 relative bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl min-h-[420px] lg:min-h-[500px] flex items-center justify-center">
+        <div className="lg:col-span-6 relative bg-slate-900 dark:bg-slate-950 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-xl min-h-[420px] lg:min-h-[500px] flex items-center justify-center">
           
           {/* Video Element */}
           <video
@@ -334,7 +334,7 @@ export default function CameraFeed({
               <button
                 type="button"
                 onClick={onRetry}
-                className="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-xs shadow-md flex items-center space-x-2"
+                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-md flex items-center space-x-2"
               >
                 <RefreshCw className="w-4 h-4" />
                 <span>Retry Camera</span>
@@ -371,25 +371,25 @@ export default function CameraFeed({
         {/* RIGHT COLUMN: LIVE ANGLES PANEL */}
         <div className="lg:col-span-3">
           <div
-            className={`bg-slate-900/90 rounded-3xl p-5 shadow-2xl border-2 transition-all flex flex-col justify-between h-full space-y-4 ${
+            className={`bg-slate-50 dark:bg-slate-900/90 rounded-3xl p-5 shadow-sm dark:shadow-2xl border-2 transition-all flex flex-col justify-between h-full space-y-4 ${
               isFramingMissing
-                ? 'border-amber-500/80'
+                ? 'border-amber-400 dark:border-amber-500/80'
                 : isPostureIssue
-                ? 'border-red-500/80'
-                : 'border-emerald-500/80'
+                ? 'border-red-400 dark:border-red-500/80'
+                : 'border-emerald-400 dark:border-emerald-500/80'
             }`}
           >
             {/* Header */}
-            <div className="border-b border-slate-800 pb-3 flex items-center justify-between">
-              <h3 className="text-sm font-mono font-black text-white uppercase tracking-wider">
+            <div className="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
+              <h3 className="text-sm font-mono font-black text-slate-900 dark:text-white uppercase tracking-wider">
                 LIVE ANGLES
               </h3>
               <span className={`text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded-full ${
                 isFramingMissing
-                  ? 'bg-amber-950 text-amber-400 border border-amber-800'
+                  ? 'bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-400 border border-amber-300 dark:border-amber-800'
                   : isPostureIssue
-                  ? 'bg-red-950 text-red-400 border border-red-800'
-                  : 'bg-emerald-950 text-emerald-400 border border-emerald-800'
+                  ? 'bg-red-100 dark:bg-red-950 text-red-700 dark:text-red-400 border border-red-300 dark:border-red-800'
+                  : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800'
               }`}>
                 {isFramingMissing ? 'POSITIONING' : isPostureIssue ? 'CHECK FORM' : 'LIVE'}
               </span>
@@ -399,74 +399,74 @@ export default function CameraFeed({
             <div className="space-y-3.5 flex-1">
               
               {/* 1. Primary Joint Angle (Left) */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800/60">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800/60">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block font-bold">
+                  <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 block font-bold">
                     {analysisResult?.exerciseId === 'side-leg-raise' ? 'HIP ABDUCTION' : analysisResult?.exerciseId === 'knee-extension' ? 'KNEE ANGLE' : analysisResult?.exerciseId === 'bicep-curls' ? 'ELBOW FLEXION' : 'SHOULDER ELEVATION'}
                   </span>
-                  <div className="text-xl font-mono font-black text-white">
-                    {analysisResult?.exerciseId === 'bicep-curls' ? leftElbowAngle : leftShoulderElev} <span className="text-xs text-slate-400 font-normal">(Left)</span>
+                  <div className="text-xl font-mono font-black text-slate-900 dark:text-white">
+                    {analysisResult?.exerciseId === 'bicep-curls' ? leftElbowAngle : leftShoulderElev} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">(Left)</span>
                   </div>
                 </div>
-                <ShoulderElevationIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? leftElbowAngle : leftShoulderElev) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#2dd4bf'} />
+                <ShoulderElevationIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? leftElbowAngle : leftShoulderElev) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#0d9488'} />
               </div>
 
               {/* 2. Secondary Joint Angle (Left) */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800/60">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800/60">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block font-bold">
+                  <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 block font-bold">
                     {analysisResult?.exerciseId === 'bicep-curls' ? 'SHOULDER ANGLE' : 'ELBOW FLEXION'}
                   </span>
-                  <div className="text-xl font-mono font-black text-white">
-                    {analysisResult?.exerciseId === 'bicep-curls' ? leftShoulderElev : leftElbowAngle} <span className="text-xs text-slate-400 font-normal">(Left)</span>
+                  <div className="text-xl font-mono font-black text-slate-900 dark:text-white">
+                    {analysisResult?.exerciseId === 'bicep-curls' ? leftShoulderElev : leftElbowAngle} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">(Left)</span>
                   </div>
                 </div>
-                <ElbowFlexionIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? leftShoulderElev : leftElbowAngle) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#2dd4bf'} />
+                <ElbowFlexionIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? leftShoulderElev : leftElbowAngle) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#0d9488'} />
               </div>
 
               {/* 3. Torso Tilt (Spine) */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800/60">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800/60">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block font-bold">TORSO TILT</span>
-                  <div className="text-xl font-mono font-black text-white">
-                    {torsoTilt} <span className="text-xs text-slate-400 font-normal">(Spine)</span>
+                  <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 block font-bold">TORSO TILT</span>
+                  <div className="text-xl font-mono font-black text-slate-900 dark:text-white">
+                    {torsoTilt} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">(Spine)</span>
                   </div>
                 </div>
-                <TorsoTiltIcon angle={parseFloat(torsoTilt) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#2dd4bf'} />
+                <TorsoTiltIcon angle={parseFloat(torsoTilt) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#0d9488'} />
               </div>
 
               {/* 4. Primary Joint Angle (Right) */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-800/60">
+              <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800/60">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block font-bold">
+                  <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 block font-bold">
                     {analysisResult?.exerciseId === 'side-leg-raise' ? 'HIP ABDUCTION' : analysisResult?.exerciseId === 'knee-extension' ? 'KNEE ANGLE' : analysisResult?.exerciseId === 'bicep-curls' ? 'ELBOW FLEXION' : 'SHOULDER ELEVATION'}
                   </span>
-                  <div className="text-xl font-mono font-black text-white">
-                    {analysisResult?.exerciseId === 'bicep-curls' ? rightElbowAngle : rightShoulderElev} <span className="text-xs text-slate-400 font-normal">(Right)</span>
+                  <div className="text-xl font-mono font-black text-slate-900 dark:text-white">
+                    {analysisResult?.exerciseId === 'bicep-curls' ? rightElbowAngle : rightShoulderElev} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">(Right)</span>
                   </div>
                 </div>
-                <ShoulderElevationIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? rightElbowAngle : rightShoulderElev) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#2dd4bf'} />
+                <ShoulderElevationIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? rightElbowAngle : rightShoulderElev) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#0d9488'} />
               </div>
 
               {/* 5. Secondary Joint Angle (Right) */}
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block font-bold">
+                  <span className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400 block font-bold">
                     {analysisResult?.exerciseId === 'bicep-curls' ? 'SHOULDER ANGLE' : 'ELBOW FLEXION'}
                   </span>
-                  <div className="text-xl font-mono font-black text-white">
-                    {analysisResult?.exerciseId === 'bicep-curls' ? rightShoulderElev : rightElbowAngle} <span className="text-xs text-slate-400 font-normal">(Right)</span>
+                  <div className="text-xl font-mono font-black text-slate-900 dark:text-white">
+                    {analysisResult?.exerciseId === 'bicep-curls' ? rightShoulderElev : rightElbowAngle} <span className="text-xs text-slate-500 dark:text-slate-400 font-normal">(Right)</span>
                   </div>
                 </div>
-                <ElbowFlexionIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? rightShoulderElev : rightElbowAngle) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#2dd4bf'} />
+                <ElbowFlexionIcon angle={parseInt(analysisResult?.exerciseId === 'bicep-curls' ? rightShoulderElev : rightElbowAngle) || 0} color={isFramingMissing ? '#f59e0b' : isPostureIssue ? '#f87171' : '#0d9488'} />
               </div>
 
             </div>
 
             {/* Bottom Panel Status Pill */}
-            <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
-              <span className="text-slate-400">STATUS:</span>
-              <span className={`font-bold ${isFramingMissing ? 'text-amber-400' : isPostureIssue ? 'text-red-400' : 'text-emerald-400'}`}>
+            <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs font-mono">
+              <span className="text-slate-500 dark:text-slate-400">STATUS:</span>
+              <span className={`font-bold ${isFramingMissing ? 'text-amber-600 dark:text-amber-400' : isPostureIssue ? 'text-red-600 dark:text-red-400' : 'text-emerald-600 dark:text-emerald-400'}`}>
                 {isFramingMissing ? 'POSITIONING CHECK' : isPostureIssue ? 'NEEDS ATTENTION' : 'GOOD POSTURE'}
               </span>
             </div>
@@ -484,17 +484,17 @@ function StepBadge({ num, label, active, completed }) {
   return (
     <div className={`flex items-center space-x-1.5 text-[11px] font-mono font-bold ${
       active
-        ? 'text-teal-300'
+        ? 'text-teal-600 dark:text-teal-300'
         : completed
-        ? 'text-emerald-400'
-        : 'text-slate-500'
+        ? 'text-emerald-600 dark:text-emerald-400'
+        : 'text-slate-400 dark:text-slate-500'
     }`}>
       <span className={`w-4 h-4 rounded-full flex items-center justify-center text-[10px] ${
         active
-          ? 'bg-teal-500 text-slate-950 font-black'
+          ? 'bg-teal-600 text-white font-black'
           : completed
-          ? 'bg-emerald-500 text-slate-950 font-black'
-          : 'bg-slate-800 text-slate-500'
+          ? 'bg-emerald-600 text-white font-black'
+          : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-500'
       }`}>
         {num}
       </span>

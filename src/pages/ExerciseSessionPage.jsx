@@ -315,7 +315,7 @@ export default function ExerciseSessionPage() {
   return (
     <div
       ref={sessionContainerRef}
-      className="py-2 px-2 sm:py-4 sm:px-4 bg-slate-950 text-white min-h-[calc(100vh-4rem)] flex flex-col justify-center select-none relative"
+      className="py-2 px-2 sm:py-4 sm:px-4 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white min-h-[calc(100vh-4rem)] flex flex-col justify-center select-none relative transition-colors duration-200"
     >
       <div className="max-w-4xl mx-auto w-full space-y-3 relative">
         {/* Automated Clean Patient-Facing Exercise Camera Portal */}
