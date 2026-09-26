@@ -1,8 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
 
-/**
- * Robust navigation hook wrapper.
- */
 export function useAppNavigate() {
   try {
     const navigate = useNavigate();
